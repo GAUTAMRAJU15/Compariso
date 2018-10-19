@@ -1,9 +1,10 @@
 import urllib2
 from BeautifulSoup import BeautifulSoup
 import re
+import sys
 # i =0 
-keyword = raw_input()
-url = "https://www.flipkart.com/search?q="+ keyword
+
+url = "https://www.flipkart.com/search?q="+ sys.argv[1]
 text = urllib2.urlopen(url).read()
 soup = BeautifulSoup(text)
 
@@ -32,10 +33,6 @@ for div in product_price:
     for a in links:
         payload['product_price'].append(a)
 
-       
-
-
-        
 
 f= open("out.txt","w+")
 i = 1;	
@@ -52,10 +49,10 @@ while(i < len(payload['product_name'])):
 	for link in range(0,i):
 		plink =  payload['product_url'][name]
 
-	f.write(str(ppname) +" && "+ str(pprice) + " && " + "https://flipkart.com"+str(plink) + "\n\n")
+	sys.stdout.write(str(ppname) +" && "+ str(pprice) + " && " + "https://flipkart.com"+str(plink) + "\n\n")
 	i= i+1;
 
 
 f.close()
-
+sys.stdout.flush()
 
