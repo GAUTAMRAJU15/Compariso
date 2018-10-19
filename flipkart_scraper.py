@@ -27,7 +27,7 @@ for div in product_price:
 
 # print payload['product_name']
 # print payload['product_price']
-f= open("out.txt","a")
+f= open("out.txt","w+")
 for name in payload['product_name']:
 	i=0
 	for price in payload['product_price']:
