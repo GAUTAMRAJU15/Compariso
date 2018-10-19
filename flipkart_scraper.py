@@ -1,7 +1,8 @@
 import urllib2
 from BeautifulSoup import BeautifulSoup
 # i =0 
-url = "https://www.flipkart.com/search?q=iphone"
+keyword = raw_input()
+url = "https://www.flipkart.com/search?q="+ keyword
 text = urllib2.urlopen(url).read()
 soup = BeautifulSoup(text)
 

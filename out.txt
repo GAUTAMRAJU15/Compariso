@@ -1,24 +1,24 @@
-Apple iPhone 6s (Space Grey, 32 GB) && ₹32,999
-Apple iPhone 6s (Gold, 32 GB) && ₹32,999
-Apple iPhone SE (Space Grey, 32 GB) && ₹32,999
-Apple iPhone 6s (Rose Gold, 32 GB) && ₹32,999
-Apple iPhone 7 (Black, 32 GB) && ₹32,999
-Apple iPhone SE (Rose Gold, 32 GB) && ₹32,999
-Apple iPhone 6 (Space Grey, 32 GB) && ₹32,999
-Apple iPhone 6s Plus (Rose Gold, 32 GB) && ₹32,999
-Apple iPhone 7 (Gold, 32 GB) && ₹32,999
-Apple iPhone 6s Plus (Gold, 32 GB) && ₹32,999
-Apple iPhone 7 (Rose Gold, 32 GB) && ₹32,999
-Apple iPhone 6s (Silver, 32 GB) && ₹32,999
-Apple iPhone 6s Plus (Space Grey, 32 GB) && ₹32,999
-Apple iPhone SE (Gold, 32 GB) && ₹32,999
-Apple iPhone 6 (Gold, 32 GB) && ₹32,999
-Apple iPhone X (Space Gray, 64 GB) && ₹32,999
-Apple iPhone 7 (Jet Black, 32 GB) && ₹32,999
-Apple iPhone 7 (Silver, 32 GB) && ₹32,999
-Apple iPhone SE (Silver, 32 GB) && ₹32,999
-Apple iPhone 6s Plus (Silver, 32 GB) && ₹32,999
-Apple iPhone 8 (Space Grey, 64 GB) && ₹32,999
-Apple iPhone X (Silver, 64 GB) && ₹32,999
-Apple iPhone XS Max (Space Grey, 256 GB) && ₹32,999
-Apple iPhone 8 Plus (Space Grey, 64 GB) && ₹32,999
+Asus Zenfone Max Pro M1 (Black, 64 GB) && ₹14,999
+Asus Zenfone Max Pro M1 (Black, 64 GB) && ₹14,999
+Asus Zenfone Max Pro M1 (Black, 32 GB) && ₹14,999
+Asus Zenfone Max Pro M1 (Grey, 64 GB) && ₹14,999
+Asus Zenfone 3 Max && ₹14,999
+Asus Zenfone Max Pro M1 (Grey, 64 GB) && ₹14,999
+Asus ZenFone 5Z (Meteor Silver, 64 GB) && ₹14,999
+Asus ZenFone 5Z (Midnight Blue, 64 GB) && ₹14,999
+Asus Zenfone Max Pro M1 (Grey, 32 GB) && ₹14,999
+Asus ZenFone 5Z (Midnight Blue, 128 GB) && ₹14,999
+Asus ZenFone 5Z (Midnight Blue, 256 GB) && ₹14,999
+Asus Zenfone 4 Selfie Dual Camera (Gold, 64 GB) && ₹14,999
+Asus ZenFone 5Z (Meteor Silver, 128 GB) && ₹14,999
+Asus ZenFone 5Z (Meteor Silver, 256 GB) && ₹14,999
+Asus Zenfone Selfie (Gold, 32 GB) && ₹14,999
+Asus Zenfone 3_Max (Silver, 32 GB) && ₹14,999
+Asus Zenfone 2 Laser (Black, 16 GB) && ₹14,999
+Asus ZenFone Max M1 (Black, 32 GB) && ₹14,999
+Asus ZenFone Max M1 (Gold, 32 GB) && ₹14,999
+Asus Zenfone 3 Laser (Gold, 32 GB) && ₹14,999
+Asus Zenfone 2 ZE551ML (Silver, 128 GB) && ₹14,999
+Asus Zenfone 2 Laser ZE500KL (Black, 16 GB) && ₹14,999
+Asus Zenfone 4 Selfie Pro (Gold, 64 GB) && ₹14,999
+Asus Zenfone Zoom (Black, 128 GB) && ₹14,999
