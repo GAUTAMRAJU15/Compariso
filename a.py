@@ -10,6 +10,9 @@ payload = {
 'product_price': []
 }
 
+result  ={
+	'data': []
+}
 product_name = soup.findAll('div',attrs={'class':'_3wU53n'})
 product_price = soup.findAll('div',attrs={'class': '_1vC4OE _2rQ-NK'})
 
@@ -23,5 +26,6 @@ for div in product_price:
     links = div.findAll(text=True)
     for a in links:
         payload['product_price'].append(a)
+
 
 print payload
