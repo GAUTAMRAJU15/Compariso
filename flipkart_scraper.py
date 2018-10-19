@@ -1,5 +1,6 @@
 import urllib2
 from BeautifulSoup import BeautifulSoup
+import re
 # i =0 
 keyword = raw_input()
 url = "https://www.flipkart.com/search?q="+ keyword
@@ -8,11 +9,17 @@ soup = BeautifulSoup(text)
 
 payload = {
 'product_name': [],
-'product_price': []
+'product_price': [],
+'product_url': []
 }
 
 product_name = soup.findAll('div',attrs={'class':'_3wU53n'})
 product_price = soup.findAll('div',attrs={'class': '_1vC4OE _2rQ-NK'})
+for a in soup.findAll('a',href=True):
+    if re.findall('pid', a['href']):
+        product_url =  a['href']
+        payload['product_url'].append(product_url)
+        
 
 
 for div in product_name:
@@ -25,20 +32,27 @@ for div in product_price:
     for a in links:
         payload['product_price'].append(a)
 
+       
+
+
+        
 
 f= open("out.txt","w+")
 i = 1;	
 
 while(i < len(payload['product_name'])):
-	pname =  ''
+	ppname =  ''
 	pprice =  ''
+	plink= ''
 
 	for name in range(0,i):
 		ppname = payload['product_name'][name]
 	for price in range(0,i):
 		pprice =  payload['product_price'][name]
+	for link in range(0,i):
+		plink =  payload['product_url'][name]
 
-	f.write(str(ppname) +" && "+ str(pprice) + "\n")
+	f.write(str(ppname) +" && "+ str(pprice) + " && " + "https://flipkart.com"+str(plink) + "\n\n")
 	i= i+1;
 
 
