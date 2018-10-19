@@ -26,20 +26,21 @@ for div in product_price:
         payload['product_price'].append(a)
 
 
-# print payload['product_name']
-# print payload['product_price']
 f= open("out.txt","w+")
-for name in payload['product_name']:
-	i=0
-	for price in payload['product_price']:
-		if(i>=1):
-			break
-		else:
-			# print str(name) +" && "+ str(price)
-			f.write(str(name) +" && "+ str(price) + "\n")
-			
-		
-			i=i+1
+i = 1;	
+
+while(i < len(payload['product_name'])):
+	pname =  ''
+	pprice =  ''
+
+	for name in range(0,i):
+		ppname = payload['product_name'][name]
+	for price in range(0,i):
+		pprice =  payload['product_price'][name]
+
+	f.write(str(ppname) +" && "+ str(pprice) + "\n")
+	i= i+1;
+
 
 f.close()
 
