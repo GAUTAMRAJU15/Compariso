@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/GAUTAMRAJU15/Compariso#readme",
   "dependencies": {
+    "apac": "^3.0.2",
+    "eslint": "^5.7.0",
     "express": "^4.16.4",
     "nodemon": "^1.18.4"
   }
