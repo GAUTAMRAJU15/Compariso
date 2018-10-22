@@ -1,11 +1,9 @@
-let queryString = null;
+let QUERY_STRING = '';
 module.exports = (app) => {
+
 	app.route('/getTwiRes')
 		.post((req,res) => {
-			queryString =  req.body.Body;
-			console.log(queryString);
-			res.send(queryString);
+			 QUERY_STRING =  req.body.Body;
+		 	 res.redirect(`/getScrapedData/${QUERY_STRING}`);
 		});
 };
-
-module.exports.QUERYSTRING = queryString;
