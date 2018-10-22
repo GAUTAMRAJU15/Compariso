@@ -1,14 +1,16 @@
 const express =  require('express');
 const bodyParser =  require('body-parser');
 
+const PORT = process.env.PORT || 3000;
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-require('./pythonScraperModule/trigger')(app);
-require('./nodeScraperModule/amazonScraper')(app);
 require('./TwiML/routeHandlers/routes')(app);
+let responseWhatsApp =  require('./TwiML/routeHandlers/routes').QUERYSTRING;
+require('./pythonScraperModule/trigger')(app,responseWhatsApp);
+require('./nodeScraperModule/amazonScraper')(app);
 
-app.listen(3000,()=>{
-	console.log('Running on 3000');
+app.listen(PORT,()=>{
+	console.log(`Running on ${PORT}`);
 });
