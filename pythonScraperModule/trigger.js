@@ -1,10 +1,10 @@
 const { spawn } = require('child_process');
 
-let scraper = (req) => {
+let scraper = (psearch) => {
 
 	return new Promise((resolve, reject) =>{
 
-		const childProcess =  spawn('python',['./pythonScraperModule/flipkartScraper.py',req.query.psearch]);
+		const childProcess =  spawn('python',['./pythonScraperModule/flipkartScraper.py',psearch]);
 
 		childProcess.stdout.on('data', function(data) {
 			resolve(data);
@@ -16,11 +16,11 @@ let scraper = (req) => {
 	});
 
 };
-module.exports = (app) => {
+module.exports = (app,queryString) => {
 
 	app.get('/getScrapedData',  (req,res)=>{
 		res.write('s');
-		scraper(req).then((scrapedData)=>{
+		scraper(queryString).then((scrapedData)=>{
 			res.end(scrapedData);
 		})
 			.catch((err) => {
