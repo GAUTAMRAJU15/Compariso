@@ -3,10 +3,7 @@ module.exports = (app) => {
 	app.route('/getTwiRes')
 		.post((req,res) => {
 			queryString =  req.body.Body;
-			res.send(queryString);
-      
-		})
-		.get((req,res) => {
+			console.log(queryString);
 			res.send(queryString);
 		});
 };
