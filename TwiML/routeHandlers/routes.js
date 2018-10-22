@@ -1,10 +1,14 @@
+let queryString = null;
 module.exports = (app) => {
-
 	app.route('/getTwiRes')
 		.post((req,res) => {
-			console.log(req.body);
+			queryString =  req.body.Body;
+			res.send(queryString);
+      
 		})
 		.get((req,res) => {
-			res.send('Just a GET request!');
+			res.send(queryString);
 		});
 };
+
+module.exports.QUERYSTRING = queryString;
