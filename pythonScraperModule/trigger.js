@@ -2,8 +2,7 @@ const { spawn } = require('child_process');
 
 let scraper = (psearch) => {
 
-	return new Promise((resolve, reject) =>{
-
+	return new Promise((resolve, reject) => {
 		const childProcess =  spawn('python',['./pythonScraperModule/flipkartScraper.py',psearch]);
 
 		childProcess.stdout.on('data', function(data) {
@@ -16,11 +15,12 @@ let scraper = (psearch) => {
 	});
 
 };
-module.exports = (app,queryString) => {
+module.exports = (app) => {
 
-	app.get('/getScrapedData',  (req,res)=>{
+	app.post('/getScrapedData/:search',  (req,res)=>{
 		res.write('s');
-		scraper(queryString).then((scrapedData)=>{
+		scraper(req.params.search).then((scrapedData)=>{
+
 			res.end(scrapedData);
 		})
 			.catch((err) => {
