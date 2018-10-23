@@ -18,10 +18,9 @@ let scraper = (psearch) => {
 module.exports = (app) => {
 
 	app.post('/getScrapedData/:search',  (req,res)=>{
-		res.write('s');
 		scraper(req.params.search).then((scrapedData)=>{
 			console.log(scrapedData.toString());
-			res.end(scrapedData);
+			res.json({});
 		})
 			.catch((err) => {
 				console.log('Error occured: ' +err);
