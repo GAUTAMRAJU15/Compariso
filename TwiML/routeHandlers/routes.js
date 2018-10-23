@@ -6,4 +6,8 @@ module.exports = (app) => {
 			QUERY_STRING =  req.body.Body;
 			res.redirect(`/getScrapedData/${QUERY_STRING}`);
 		});
+
+	app.get('/',(req,res) => {
+		res.send('You Just entered a webhook area');
+	});
 };
