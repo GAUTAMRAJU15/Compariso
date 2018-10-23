@@ -8,6 +8,7 @@ url = "https://www.flipkart.com/search?q=" + sys.argv[1]
 text = urllib2.urlopen(url).read()
 soup = BeautifulSoup(text)
 
+
 payload = {
     'product_name': [],
     'product_price': [],

@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Price Negotiator A bot for comparising price in whatsapp",
   "main": "index.js",
+  "engines": {
+    "node": "10.9.0"
+  },
   "scripts": {
     "dev": "nodemon ."
   },
