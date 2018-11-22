@@ -20,7 +20,7 @@ module.exports = (app) => {
 	app.post('/getScrapedData/:search',  (req,res)=>{
 		scraper(req.params.search).then((scrapedData)=>{
 			console.log(scrapedData.toString());
-			res.json({});
+			res.end('this  is a response');
 		})
 			.catch((err) => {
 				console.log('Error occured: ' +err);

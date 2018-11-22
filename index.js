@@ -6,6 +6,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+require('dotenv').config();
 require('./TwiML/routeHandlers/routes')(app);
 require('./pythonScraperModule/trigger')(app);
 require('./nodeScraperModule/amazonScraper')(app);
