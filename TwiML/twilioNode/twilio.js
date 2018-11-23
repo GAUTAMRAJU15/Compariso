@@ -1,9 +1,10 @@
 module.exports = (app,data) => {
 
-	app.route('/getTwiResWebhook/')
+	app.route('/getTwiResWebhook')
 		.post((req,res) => {
-			console.log('twil ml file inside');
+			console.log('[callTwiliofunc()]',data);
 			console.log(data);
+			res.send('asdsa');
 		});
 
 	app.get('/',(req,res) => {
