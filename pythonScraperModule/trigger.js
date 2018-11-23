@@ -18,7 +18,6 @@ let callWebhook =  async (app) => {
 	return await app.post('/getScrapedData/:search',async (req,res)=>{
 		await scraper(req.params.search).then((scrapedData)=>{
 			data.push(scrapedData.toString());
-			console.log(data);
 			res !== undefined ? res.redirect('/postTwiResWebhook') :  null;
 		})
 			.catch((err) => {
