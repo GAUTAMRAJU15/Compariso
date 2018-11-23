@@ -16,11 +16,11 @@ let scraper = (psearch) => {
 
 };
 module.exports = (app) => {
-
+	let; data = null;
 	app.post('/getScrapedData/:search',  (req,res)=>{
 		scraper(req.params.search).then((scrapedData)=>{
-			console.log(scrapedData.toString());
-			res.send('this  is a response');
+			data = scrapedData.toString();
+			res.redirect('/getTwiResWebhook');
 		})
 			.catch((err) => {
 				console.log('Error occured: ' +err);
