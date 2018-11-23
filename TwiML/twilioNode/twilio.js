@@ -1,6 +1,7 @@
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
 const parser = require('xml2json');
 
+
 function hasArray (data) {
 	return function(req,res,next) {
 		req.body = data.pop();
@@ -9,9 +10,17 @@ function hasArray (data) {
 	};
 }
 
+function convertValidJSON (req, res, next){
+	if (/\/xml$/.test(req.headers['content-type'])) {
+		req.body = parser.toJson(req.body.toString(), { object: true });
+	}
+	next();
+}
+
 module.exports = (app,data) => {
 	let filterArray =  hasArray(data);
 	app.use(filterArray);
+	app.use(convertValidJSON);
 
 	app.route('/postTwiResWebhook')
 		.post(filterArray,(req,res) => {
