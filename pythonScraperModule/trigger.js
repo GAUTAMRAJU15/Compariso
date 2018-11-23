@@ -15,8 +15,8 @@ let scraper = (psearch) => {
 };
 
 let callWebhook =  async (app) => {
-	return await app.post('/getScrapedData/:search',(req,res)=>{
-		scraper(req.params.search).then((scrapedData)=>{
+	return await app.post('/getScrapedData/:search',async (req,res)=>{
+		await scraper(req.params.search).then((scrapedData)=>{
 			data = scrapedData;
 			return [data,res];
 		})
