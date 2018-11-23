@@ -1,11 +1,13 @@
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
-const parser = require('xml2json');
 
+const accountSid = process.env.ACCOUNT_SID;
+const authToken = process.env.AUTH_TOKEN;
+const client = require('twilio')(accountSid, authToken);
+const parser = require('xml2json');
 
 function hasArray (data) {
 	return function(req,res,next) {
 		req.body = data.pop();
-		console.log('[req body]',req.body);
 		next();
 	};
 }
@@ -17,16 +19,30 @@ function convertValidJSON (req, res, next){
 	next();
 }
 
+
 module.exports = (app,data) => {
 	let filterArray =  hasArray(data);
 	app.use(filterArray);
 	app.use(convertValidJSON);
 
 	app.route('/postTwiResWebhook')
-		.post(filterArray,(req,res) => {
+		.post(filterArray,convertValidJSON,(req,res) => {
+
+			client.messages
+				.create({
+					body: 'hello world',
+					from: `whatsapp:${process.env.SANDBOX_NUMBER}`,
+					to: `whatsapp:${process.env.PHONE_NO}`
+				})
+				.then(message => console.log(message.sid))
+				.catch(err => console.log('[error]', err))
+				.done();
 
 			const response = new MessagingResponse();
-			const message = response.message();
-			res.send(	message.body(req.body));
+			const message = response.message(req.body);
+
+
+			message.body('Sdvgsdnjvsdhcdhjcvsdhjvh');
+			res.send(response.toString());
 		});
 };

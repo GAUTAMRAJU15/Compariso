@@ -1,7 +1,6 @@
 const express =  require('express');
 const bodyParser =  require('body-parser');
 
-const PORT = process.env.PORT || 3002;
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -15,6 +14,9 @@ let dataWebhook = require('./pythonScraperModule/trigger').dataWebhook;
 
 require('./TwiML/twilioNode/twilio')(app,dataWebhook);
 require('./nodeScraperModule/amazonScraper')(app);
+
+
+const PORT = process.env.PORT || 3002;
 
 app.listen(PORT,()=>{
 	console.log(`Running on ${PORT}`);
