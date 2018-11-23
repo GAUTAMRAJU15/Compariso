@@ -18,7 +18,7 @@ let callWebhook =  (app) => {
 	app.post('/getScrapedData/:search',(req,res)=>{
 		scraper(req.params.search).then((scrapedData)=>{
 			data = scrapedData;
-			return {data,res};
+			return [data,res];
 		})
 			.catch((err) => {
 				console.log('Error occured: ' +err);
