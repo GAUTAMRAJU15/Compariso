@@ -16,11 +16,10 @@ let scraper = (psearch) => {
 
 let callWebhook = (scrapedData,res) => {
 	data = scrapedData;
-	console.log('[callwebhookfunc()]',data);
-	res.redirect('/getTwiResWebhook');
+	return [data,res];
 };
 
-module.exports = (app) => {
+module.exports = async (app) => {
 	app.post('/getScrapedData/:search',  (req,res)=>{
 		scraper(req.params.search).then((scrapedData)=>{
 			callWebhook(scrapedData.toString(),res);
@@ -30,5 +29,3 @@ module.exports = (app) => {
 			});
 	});
 };
-
-module.exports.data = data;

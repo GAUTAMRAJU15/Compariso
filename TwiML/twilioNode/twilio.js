@@ -1,13 +1,9 @@
-module.exports = (app,data) => {
 
-	app.route('/getTwiResWebhook')
+module.exports = (app,data,res) => {
+
+	res.redirect('/postTwiResWebhook');
+	app.route('/postTwiResWebhook')
 		.post((req,res) => {
-			console.log('[callTwiliofunc()]',data);
-			console.log(data);
 			res.send('asdsa');
 		});
-
-	app.get('/',(req,res) => {
-		res.send('You Just entered a TwilMl area');
-	});
 };

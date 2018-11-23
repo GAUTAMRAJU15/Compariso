@@ -8,10 +8,10 @@ app.use(bodyParser.json());
 
 require('dotenv').config();
 require('./TwiML/routeHandlers/routes')(app);
-require('./pythonScraperModule/trigger')(app);
-let scraperWebhook = require('./pythonScraperModule/trigger').data;
+let [scraperWebhook,res]  = require('./pythonScraperModule/trigger')(app);
+
 console.log('[index.js]',scraperWebhook);
-require('./TwiML/twilioNode/twilio')(app,scraperWebhook);
+require('./TwiML/twilioNode/twilio')(app,scraperWebhook,res);
 require('./nodeScraperModule/amazonScraper')(app);
 
 app.listen(PORT,()=>{
