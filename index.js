@@ -10,6 +10,7 @@ require('dotenv').config();
 require('./TwiML/routeHandlers/routes')(app);
 
 let scraperWebhook= require('./pythonScraperModule/trigger').callWebhook(app);
+console.log(scraperWebhook[0]);
 require('./TwiML/twilioNode/twilio')(app,scraperWebhook[0],scraperWebhook[1]);
 require('./nodeScraperModule/amazonScraper')(app);
 
