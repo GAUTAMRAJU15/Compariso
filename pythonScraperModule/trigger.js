@@ -15,7 +15,7 @@ let scraper = (psearch) => {
 };
 
 let callWebhook =  (app) => {
-	app.post('/getScrapedData/:search',(req,res)=>{
+	return app.post('/getScrapedData/:search',(req,res)=>{
 		scraper(req.params.search).then((scrapedData)=>{
 			data = scrapedData;
 			return [data,res];
