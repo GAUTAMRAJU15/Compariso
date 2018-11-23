@@ -1,7 +1,7 @@
 const { spawn } = require('child_process');
+let data = null;
 
 let scraper = (psearch) => {
-
 	return new Promise((resolve, reject) => {
 		const childProcess =  spawn('python',['./pythonScraperModule/flipkartScraper.py',psearch]);
 
@@ -11,19 +11,23 @@ let scraper = (psearch) => {
 		childProcess.stderr.on('data',(data)=>{
 			reject(data);
 		});
-
 	});
-
 };
+
+let callWebhook = (scrapedData,res) => {
+	data = scrapedData.toString();
+	res.redirect('/getTwiResWebhook');
+};
+
 module.exports = (app) => {
-	var data = null;
 	app.post('/getScrapedData/:search',  (req,res)=>{
 		scraper(req.params.search).then((scrapedData)=>{
-			data = scrapedData.toString();
-			res.redirect('/getTwiResWebhook');
+			callWebhook(scrapedData.toString(),res);
 		})
 			.catch((err) => {
 				console.log('Error occured: ' +err);
 			});
 	});
 };
+
+module.exports.data = data;
