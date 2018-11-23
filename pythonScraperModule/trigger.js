@@ -16,6 +16,7 @@ let scraper = (psearch) => {
 
 let callWebhook = (scrapedData,res) => {
 	data = scrapedData.toString();
+	console.log(data);
 	res.redirect('/getTwiResWebhook');
 };
 
