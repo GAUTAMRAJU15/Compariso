@@ -1,6 +1,6 @@
 const { spawn } = require('child_process');
-let data = null;
 
+let data =  [];
 let scraper = (psearch) => {
 	return new Promise((resolve, reject) => {
 		const childProcess =  spawn('python',['./pythonScraperModule/flipkartScraper.py',psearch]);
@@ -17,8 +17,9 @@ let scraper = (psearch) => {
 let callWebhook =  async (app) => {
 	return await app.post('/getScrapedData/:search',async (req,res)=>{
 		await scraper(req.params.search).then((scrapedData)=>{
-			data = scrapedData;
-			return [data,res];
+			data.push(scrapedData.toString());
+			console.log(data);
+			res !== undefined ? res.redirect('/postTwiResWebhook') :  null;
 		})
 			.catch((err) => {
 				console.log('Error occured: ' +err);
@@ -28,3 +29,4 @@ let callWebhook =  async (app) => {
 
 
 module.exports.callWebhook = callWebhook;
+module.exports.dataWebhook =  data;
