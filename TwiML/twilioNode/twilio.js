@@ -1,7 +1,7 @@
 
 module.exports = (app,data,res) => {
 
-	res.redirect('/postTwiResWebhook');
+	res !== undefined ? res.redirect('/postTwiResWebhook') :  null;
 	app.route('/postTwiResWebhook')
 		.post((req,res) => {
 			res.send('asdsa');

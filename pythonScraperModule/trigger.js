@@ -14,18 +14,17 @@ let scraper = (psearch) => {
 	});
 };
 
-let callWebhook = (scrapedData,res) => {
-	data = scrapedData;
-	return [data,res];
-};
-
-module.exports = async (app) => {
-	app.post('/getScrapedData/:search',  (req,res)=>{
-		scraper(req.params.search).then((scrapedData)=>{
-			callWebhook(scrapedData.toString(),res);
+let callWebhook = async (app) => {
+	app.post('/getScrapedData/:search',  async (req,res)=>{
+		await scraper(req.params.search).then((scrapedData)=>{
+			data = scrapedData;
+			return {data,res};
 		})
 			.catch((err) => {
 				console.log('Error occured: ' +err);
 			});
 	});
 };
+
+
+module.exports.callWebhook = callWebhook;
