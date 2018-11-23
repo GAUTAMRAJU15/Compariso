@@ -16,7 +16,7 @@ let scraper = (psearch) => {
 
 };
 module.exports = (app) => {
-	let; data = null;
+	var data = null;
 	app.post('/getScrapedData/:search',  (req,res)=>{
 		scraper(req.params.search).then((scrapedData)=>{
 			data = scrapedData.toString();
