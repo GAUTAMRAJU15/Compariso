@@ -33,7 +33,7 @@ module.exports = (app,data) => {
 
 			client.messages
 				.create({
-					body: payload.slice(0,100) ,
+					body: 'the queried devices' ,
 					from: `whatsapp:${process.env.SANDBOX_NUMBER}`,
 					to: `whatsapp:${process.env.PHONE_NO}`
 				})
@@ -43,7 +43,7 @@ module.exports = (app,data) => {
 
 			const response = new MessagingResponse();
 			const message = response.message();
-			message.body('the queried devoces');
+			message.body(payload.slice(0,1518));
 			res.send(response.toString());
 		});
 };
