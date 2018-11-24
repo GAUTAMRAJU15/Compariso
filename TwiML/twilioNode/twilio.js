@@ -7,7 +7,8 @@ const parser = require('xml2json');
 
 function hasArray (data) {
 	return function(req,res,next) {
-		req.body = data.pop();
+		req.body =  [...data];
+
 		next();
 	};
 }
@@ -22,15 +23,17 @@ function convertValidJSON (req, res, next){
 
 module.exports = (app,data) => {
 	let filterArray =  hasArray(data);
-	app.use(filterArray);
-	app.use(convertValidJSON);
+
+	app.use('/postTwiResWebhook',filterArray,convertValidJSON);
 
 	app.route('/postTwiResWebhook')
-		.post(filterArray,convertValidJSON,(req,res) => {
+		.post(filterArray,convertValidJSON,  (req,res) => {
+			let payload = null;
+			payload =  req.body.pop();
 
 			client.messages
 				.create({
-					body: 'hello world',
+					body: payload.slice(0,100) ,
 					from: `whatsapp:${process.env.SANDBOX_NUMBER}`,
 					to: `whatsapp:${process.env.PHONE_NO}`
 				})
@@ -39,10 +42,8 @@ module.exports = (app,data) => {
 				.done();
 
 			const response = new MessagingResponse();
-			const message = response.message(req.body);
-
-
-			message.body('Sdvgsdnjvsdhcdhjcvsdhjvh');
+			const message = response.message();
+			message.body('the queried devoces');
 			res.send(response.toString());
 		});
 };
