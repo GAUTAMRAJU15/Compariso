@@ -4,7 +4,7 @@ import re
 import sys
 # i =0
 
-url = "https://www.flipkart.com/search?q=" + sys.argv[1]
+url = "https://www.flipkart.com/search?q=" + urllib2.quote(sys.argv[1])
 text = urllib2.urlopen(url).read()
 soup = BeautifulSoup(text)
 
