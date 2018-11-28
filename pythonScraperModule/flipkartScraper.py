@@ -49,7 +49,7 @@ while(i < len(payload['product_name'])):
     for link in range(0, i):
         plink = payload['product_url'][name]
 
-    sys.stdout.write(str(ppname) + ' && ' + str(pprice) +' && ' + 'https://flipkart.com' + str(plink) + '\n\n')
+    sys.stdout.write(str(ppname) + ' && ' + str(pprice) +' && ' + 'https://flipkart.com' + str(plink) + '\n')
     i = i + 1
 
 
