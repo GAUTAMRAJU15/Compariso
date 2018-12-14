@@ -69,10 +69,6 @@ let filterPayload = (payloadStream = null,res) => {
 
 function sendMessgaestoDevice(chunks) {
 	console.log(checkReadableStream(chunks));
-	// const response = new MessagingResponse();
-	// const message = response.message();
-	// message.body(chunks);
-	// res.write(response.toString());
 	client.messages
 		.create({
 			body: `${chunks.slice()}` ,

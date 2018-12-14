@@ -5,8 +5,8 @@ import sys
 # i =0
 
 url = "https://www.flipkart.com/search?q=" + urllib2.quote(sys.argv[1])
-text = urllib2.urlopen(url).read()
-soup = BeautifulSoup(text)
+flipkartText = urllib2.urlopen(url).read()
+soup = BeautifulSoup(flipkartText)
 
 
 payload = {
@@ -34,8 +34,6 @@ for div in product_price:
         payload['product_price'].append(a)
 
 
-f = open('out.txt', 'w+')
-i = 1
 
 while(i < len(payload['product_name'])):
     ppname = ''
@@ -52,6 +50,4 @@ while(i < len(payload['product_name'])):
     sys.stdout.write(str(ppname) + ' && ' + str(pprice) +' && ' + 'https://flipkart.com' + str(plink) + '\n')
     i = i + 1
 
-
-f.close()
 sys.stdout.flush()
