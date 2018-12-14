@@ -9,8 +9,8 @@ app.use(bodyParser.raw({ type: () => true }));
 require('dotenv').config();
 require('./TwiML/routeHandlers/routes')(app);
 
-require('./pythonScraperModule/trigger').callWebhook(app);
-let dataWebhook = require('./pythonScraperModule/trigger').dataWebhook;
+require('./trigger').callWebhook(app);
+let dataWebhook = require('./trigger').dataWebhook;
 
 require('./TwiML/twilioNode/twilio')(app,dataWebhook);
 require('./nodeScraperModule/amazonScraper')(app);
