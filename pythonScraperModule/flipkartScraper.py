@@ -1,4 +1,5 @@
 import urllib2
+import pandas as pd
 from BeautifulSoup import BeautifulSoup
 import re
 import sys
